@@ -8,63 +8,97 @@
 </div>
 
 <div class="container mt-4">
+  <div class="col-md-6 offset-md-3 border border-success border-opacity-25">
+    <div class="card">
+      <div class="card-header text-center">Crear Jugador</div>
+      <div class="card-body">
+        <form>
+          <div class="input-group mb-4">
+            <span class="input-group-text">Nombre y Equipo</span>
+            <input
+              type="text"
+              aria-label="Nombre"
+              class="form-control"
+              id="nombre"
+              [(ngModel)]="nombreInput"
+              name="nombreInput"
+            />
+            <input
+              type="text"
+              aria-label="Equipo"
+              class="form-control"
+              id="equipo"
+              [(ngModel)]="equipoInput"
+              name="equipoInput"
+            />
+          </div>
+          <div class="input-group">
+            <span class="input-group-text">Pais y Dorsal N°</span>
+            <input
+              type="text"
+              aria-label="Pais"
+              class="form-control"
+              required
+              id="pais"
+              [(ngModel)]="paisInput"
+              name="paisInput"
+            />
+            <input
+              type="text"
+              aria-label="Dorsal"
+              class="form-control"
+              id="dorsal"
+              [(ngModel)]="dorsalInput"
+              name="dorsalInput"
+            />
+          </div>
 
-    <div class="col-md-6 offset-md-3 border border-success border-opacity-25 bg-light">
-      <h2 class="text-center">Crear Jugador</h2>
-      <form>
-        <div class="input-group mb-4">
-          <span class="input-group-text">Nombre y Equipo</span>
-          <input type="text" aria-label="Nombre" class="form-control" id="nombre" [(ngModel)]="nombreInput" name="nombreInput"/>
-          <input type="text" aria-label="Equipo" class="form-control" id="equipo" [(ngModel)]="equipoInput" name="equipoInput" />
-        </div>
-        <div class="input-group">
-          <span class="input-group-text">Pais y Dorsal N°</span>
-          <input type="text" aria-label="Pais" class="form-control" id="pais" [(ngModel)]="paisInput" name="paisInput" />
-          <input type="text" aria-label="Dorsal" class="form-control" id="dorsal" [(ngModel)]="dorsalInput" name="dorsalInput" />
-        </div>
-
-        <div class="d-grid gap-2 col-6 mx-auto m-4">
-          <button class="btn btn-primary" type="submit" (click)="agregarJugador()" >Guardar</button>
-
-        </div>
-
-      </form>
+          <div class="d-grid gap-2 col-6 mx-auto m-4">
+            <button
+              class="btn btn-primary"
+              type="submit"
+              (click)="agregarJugador()"
+            >
+              Guardar
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-
-
-
+  </div>
 </div>
 
 <div class="container mt-5">
-  <div class="col-md-6 offset-md-3">
-    <table class="table-responsive">
-      <table class="table table-bordered border-success border-opacity-25 table-light">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Equipo</th>
-            <th scope="col">Pais</th>
-            <th scope="col">Dorsal</th>
-
-          </tr>
-        </thead>
-
-        <tbody>
-          <ng-container *ngFor="let jugador of jugadores; let i = index">
-            <tr>
-              <th scope="row">{{ i + 1 }}</th>
-              <td>{{ jugador.nombre }}</td>
-              <td>{{ jugador.equipo }}</td>
-              <td>{{ jugador.pais }}</td>
-              <td>{{ jugador.dorsal }}</td>
-            </tr>
-          </ng-container>
-        </tbody>
-      </table>
-    </table>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-body">
+          <table class="table table-sm">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Equipo</th>
+                <th scope="col">Pais</th>
+                <th scope="col">Dorsal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let jugador of jugadores; let i = index">
+                <tr>
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ jugador.nombre }}</td>
+                  <td>{{ jugador.equipo }}</td>
+                  <td>{{ jugador.pais }}</td>
+                  <td>{{ jugador.dorsal }}</td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
-
 </div>
 
 <router-outlet></router-outlet>
